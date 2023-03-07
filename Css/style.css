@@ -1,0 +1,386 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  letter-spacing: 0.05rem;
+  font-family: "League Spartan", sans-serif;
+}
+
+p, span, div, a, ul, li {
+  font-size: 12px;
+}
+
+.SliderMobile, #MobileButtons, .NavbarIcons {
+  display: none;
+}
+
+h1 {
+  font-size: calc(2em + 0.5vw);
+  font-weight: 700;
+  color: hsl(0, 0%, 0%);
+}
+
+h2 {
+  font-size: calc(1.7em + 0.5vw);
+  font-weight: 700;
+  color: hsl(0, 0%, 0%);
+}
+
+p {
+  font-size: calc(12px + 0.5vw);
+  color: hsl(0, 0%, 63%);
+  font-weight: lighter;
+  line-height: 2rem;
+}
+
+.btn {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.btn span {
+  font-size: calc(16px + 1vw);
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 0.5rem;
+}
+.btn img {
+  width: 50px;
+}
+
+.btn:hover {
+  filter: invert(50%);
+}
+
+#MobileButtons, #DesktopButton {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+}
+#MobileButtons img, #DesktopButton img {
+  background: black;
+  width: 80px;
+  height: 80px;
+  padding: 1rem;
+  cursor: pointer;
+}
+#MobileButtons img:hover, #DesktopButton img:hover {
+  background: hsl(0, 0%, 27%);
+}
+
+body {
+  position: relative;
+  width: 100%;
+}
+
+nav {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  padding: 2rem 3rem;
+  gap: 3rem;
+  z-index: 2;
+}
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+nav ul li a {
+  font-size: 1.3rem;
+  color: hsl(0, 0%, 100%);
+  transition: 0.3s ease;
+}
+nav ul li .hr {
+  border: 1px solid hsl(0, 0%, 100%);
+  margin-top: 0.2rem;
+  opacity: 0;
+}
+nav ul li a:hover ~ .hr {
+  opacity: 1;
+  animation-name: aHover;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+main {
+  width: 100%;
+  display: grid;
+  grid-template-areas: "header header header section1 section1" "section2 section3 section3 section3 section4";
+  gap: 0;
+  justify-items: stretch;
+  align-items: stretch;
+  min-height: 100vh;
+}
+main header {
+  grid-area: header;
+  overflow: hidden;
+}
+main header ul {
+  width: 100%;
+  height: 100%;
+}
+main header ul li {
+  width: 100%;
+  height: 100%;
+}
+main header ul li img {
+  width: 100%;
+  height: 100%;
+}
+main section.sc1 {
+  grid-area: section1;
+  position: relative;
+  padding: 0 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main section.sc1 ul li {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+main section.sc2 {
+  grid-area: section2;
+}
+main section.imgText {
+  padding: 1rem;
+  grid-area: section3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  gap: 1.5rem;
+}
+main section.sc4 {
+  grid-area: section4;
+}
+main section.imgCont img {
+  width: 100%;
+  height: 100%;
+}
+
+footer {
+  padding: 0.5rem 0;
+  width: 100%;
+  background: hsl(0, 0%, 0%);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+footer span {
+  color: hsl(0, 0%, 63%);
+}
+footer a {
+  color: hsl(0, 0%, 100%);
+  transition: 0.3s ease;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 990px) {
+  .close {
+    display: none;
+  }
+}
+@media (max-width: 990px) {
+  .SliderMobile, #MobileButtons, .NavbarIcons {
+    display: block;
+  }
+  #DesktopButton {
+    display: none;
+  }
+  .SliderDesktop {
+    display: none;
+  }
+  nav {
+    width: 100%;
+    z-index: 2;
+    margin: 0;
+    padding: 3rem 2rem;
+  }
+  nav .NavHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  nav ul {
+    display: none;
+  }
+  nav ul li a {
+    color: hsl(0, 0%, 0%);
+  }
+  nav ul li .hr {
+    border: 1px solid hsl(0, 0%, 0%);
+  }
+  main {
+    grid-template-areas: "header" "section1" "section2" "section3" "section4";
+  }
+  main section.sc1 ul li {
+    padding: 10%;
+    height: auto;
+    gap: 1.5rem;
+  }
+  header {
+    position: relative;
+  }
+  #MobileButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  #MobileButtons img {
+    width: auto;
+    height: auto;
+  }
+  main section.sc1 {
+    padding: 10% 5%;
+  }
+  main section.sc1 ul li {
+    padding: 0;
+  }
+  main section.imgText {
+    padding: 10% 5%;
+  }
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+.open, .close {
+  cursor: pointer;
+}
+
+.navActive {
+  display: flex;
+}
+
+.navA {
+  background: hsl(0, 0%, 100%);
+  animation-name: navOpen;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.navHidden {
+  display: none !important;
+}
+
+.slideShow {
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.textShow {
+  animation-name: textShow;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.navShadow {
+  background: rgba(0, 0, 0, 0.301);
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+#navShadow {
+  display: none;
+}
+
+@keyframes aHover {
+  from {
+    opacity: 0;
+    margin-left: 50%;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    margin-left: 0;
+    width: 100%;
+  }
+}
+@keyframes navOpen {
+  from {
+    top: -100%;
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+    height: auto;
+  }
+}
+@keyframes slideShowL {
+  from {
+    margin-left: -50%;
+    opacity: 0;
+  }
+  to {
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+@keyframes slideShowR {
+  from {
+    margin-left: 50%;
+    opacity: 0;
+  }
+  to {
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+@keyframes textShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=style.css.map */
